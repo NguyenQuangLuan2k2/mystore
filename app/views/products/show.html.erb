@@ -1,0 +1,19 @@
+<p><%= link_to "Back", products_path %></p>
+
+<session>
+    <%= image_tag @product.featured_image if @product.featured_image.attached? %>
+    
+    <section class="product-info">
+        <% cache @product do %>
+            <p>Tên: <%= @product.name %></p>
+            <p2>Mô tả:<%= @product.description %></p2>
+        <% end %>
+
+        <%= render "inventory", product: @product %>
+
+        <% if authenticated? %>
+            <%= link_to "Edit", edit_product_path(@product) %>
+            <%= button_to "Delete", @product, method: :delete, data: { turbo_confirm: "Are you sure to delete it?" } %>
+        <% end %>
+    </session>
+</session>
