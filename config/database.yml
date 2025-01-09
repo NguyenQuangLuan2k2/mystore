@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  database: storage/development.sqlite3
+  database: mystore
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -26,7 +26,7 @@ test:
 production:
   primary:
     <<: *default
-    database: postgresql://mystore:vV8xDCr7pJJfYr50kkzC7wxw92YBzkoQ@dpg-ctvu98bqf0us73fhqcig-a/mystore_to07
+    database: mystore
   cache:
     <<: *default
     database: storage/production_cache.sqlite3
